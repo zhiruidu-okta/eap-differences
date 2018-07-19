@@ -55,8 +55,8 @@ public class IntegerAttribute extends RadiusAttribute {
 			if (name != null)
 				return name;
 		}
-		// Radius uses only unsigned values....
-		return Long.toString(((long)value & 0xffffffffl));
+
+		return Integer.toString(value);
 	}
 	
 	/**
@@ -87,8 +87,7 @@ public class IntegerAttribute extends RadiusAttribute {
 			}
 		}
 		
-		// Radius uses only unsigned integers for this the parser should consider as Long to parse high bit correctly...
-		setAttributeValue((int)Long.parseLong(value));
+		setAttributeValue(Integer.parseInt(value));
 	}
 	
 	/**
